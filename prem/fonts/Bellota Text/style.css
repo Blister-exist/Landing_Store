@@ -1,0 +1,42 @@
+@font-face {
+   font-family: 'Bellota Text';
+   font-style: normal;
+   font-display: swap;
+   font-weight: 300;
+   src: url('file:///C:/Users/User/120723akcia/fonts/Bellota Text/300.ttf') format('truetype');
+}
+@font-face {
+   font-family: 'Bellota Text';
+   font-style: normal;
+   font-display: swap;
+   font-weight: 700;
+   src: url('file:///C:/Users/User/120723akcia/fonts/Bellota Text/700.ttf') format('truetype');
+}
+@font-face {
+   font-family: 'Bellota Text';
+   font-style: italic;
+   font-display: swap;
+   font-weight: 300;
+   src: url('file:///C:/Users/User/120723akcia/fonts/Bellota Text/300italic.ttf') format('truetype');
+}
+@font-face {
+   font-family: 'Bellota Text';
+   font-style: regular;
+   font-display: swap;
+   font-weight: 400;
+   src: url('file:///C:/Users/User/120723akcia/fonts/Bellota Text/regular.ttf') format('truetype');
+}
+@font-face {
+   font-family: 'Bellota Text';
+   font-style: italic;
+   font-display: swap;
+   font-weight: 400;
+   src: url('file:///C:/Users/User/120723akcia/fonts/Bellota Text/italic.ttf') format('truetype');
+}
+@font-face {
+   font-family: 'Bellota Text';
+   font-style: italic;
+   font-display: swap;
+   font-weight: 700;
+   src: url('file:///C:/Users/User/120723akcia/fonts/Bellota Text/700italic.ttf') format('truetype');
+}
