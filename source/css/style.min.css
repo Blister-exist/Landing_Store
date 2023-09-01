@@ -90,10 +90,16 @@
         box-shadow: 0 0 80px 30px var(--gray);
     }
 
+    .hero__frame{
+        position: relative;
+        left: -0.55vw;
+        top: -6.9vw;
+    }
+
     .hero__content{
         height: auto;
-        flex: 0 1 100%;
-        padding: 150px;
+        flex: 0 1 80%;
+        padding: 55px;
     }
 
     .hero__content--mobile{
@@ -102,7 +108,7 @@
 
     .hero__background{
         position: absolute;
-        left: 40px;
+        left: 30px;
         top: 10px;
         height: auto;
         aspect-ratio: 1/2;
@@ -200,4 +206,75 @@
          grid-row: 4 / -1; 
          grid-column: 1 / -1; 
      }
+}
+@media only screen and (max-width: 600px){
+    .tabs{
+        margin-top: 50px;
+    }
+    
+    .tabs__container{
+        padding: 50px 50px;
+        background-color: var(--gray);
+        border-radius: 60px;
+    }
+    
+    .tabs__heading{
+        margin-top: 0;
+    }
+    
+    .tabs__buttons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: auto;
+        margin-bottom: 50px;
+        width: 50%;
+    }
+    
+    .tab__area{
+        position: relative;
+        margin-right: auto;
+        width: 100%;
+        height: 70vh;
+        overflow: hidden;
+    }
+    
+    .tab__block{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        top: 100%;
+        left: 0;
+        border-radius: 60px;
+        transition: .7s top ease-in-out;
+    }
+    
+    .tab__block--1{
+        top: 0;
+    }
+    
+    .tab__frame{
+        flex: 0 0 60%;
+        height: 100%;
+        border-radius: 30px; 
+    }
+    
+    .tab__description{
+        flex: 0 0 40%;
+        padding: 20px; /* Decrease padding */
+        border-top: none; /* Remove top border */
+        border-right: none; /* Remove right border */
+        border-bottom-left-radius: inherit; /* Inherit bottom-left radius */
+    }
+    
+    .tab__heading{
+        margin-bottom: 20px; /* Decrease margin */
+        font-size: var(--fsz-heading-light);
+        line-height: var(--lh-heading-light);
+        font-weight: bold; /* Use bold instead of semibold */
+        color: var(--text-gray);
+    }
 }
