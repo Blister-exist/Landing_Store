@@ -1,37 +1,24 @@
-//=========================slider=========================
-
-
-const frames = {                                            //глобальный объект
+const exmp1 = {                                            //глобальный объект
     step: 100,                                              //шаг сдвига (100% т.е. ширина блока)
 
-leftArrow: document.getElementById('leftArrow'),            //объект левой стрелки
-    rightArrow: document.getElementById('rightArrow'),      //объект правой стрелки
+    leftArrow: document.getElementById('exmp1-left'),      //объект левой стрелки
+    rightArrow: document.getElementById('exmp1-right'),    //объект правой стрелки
 
     units: [                                                //объект содержащий объекты слайдов
         {
-        item: document.getElementById('b-1'),               //сам html объект
-        startPos: 0,                                        //старновая позиция
-        endPos: -300,                                       //конечная позиция
-        curPos: 0,                                          //текукщая позиция (!!!здесь всегда равна стартовой!!!)
-        },
-        {
-        item: document.getElementById('b-2'),               //остальные по аналогии
-        startPos: 100,
-        endPos: -200,                                       //при добавлении нового слайда
-        curPos: 100,                                        //добавить новый объект по этоим шаблонам
-        },                                                  //не забыть указать старт текущий и конечный 
-        {
-        item: document.getElementById('b-3'),
-        startPos: 200,
+        item: document.getElementById('e1-1'),
+        startPos: 0,
         endPos: -100,
-        curPos: 200,
+        curPos: 0,
+        bullit: document.getElementById('bul_ex1_1')
         },
         {
-        item: document.getElementById('b-4'),
-        startPos: 300,
+        item: document.getElementById('e1-2'),
+        startPos: 100,
         endPos: 0,
-        curPos: 300,
-        },
+        curPos: 100,
+        bullit: document.getElementById('bul_ex1_2')
+        }
     ],
 
 
@@ -44,6 +31,13 @@ leftArrow: document.getElementById('leftArrow'),            //объект ле�
                 }
                 else{                                   //инача
                     obj.curPos -= this.step;            //уменьшаем позицию на шаг (свайп вправо)
+                }
+
+                if (obj.curPos === 0){
+                    obj.bullit.style.opacity = '1';
+                }
+                else{
+                    obj.bullit.style.opacity = '0.5';
                 }
     
                 this.units[item].item.style.left = `${obj.curPos}%`;    //устанавливаем left в нужное значение для сдвига слайда
@@ -79,7 +73,7 @@ leftArrow: document.getElementById('leftArrow'),            //объект ле�
     }
 }
 
-frames.leftArrow.addEventListener('click', () => frames.changeSideManual(frames.leftArrow));    //обработчики нажатия на стрелку
-frames.rightArrow.addEventListener('click', () => frames.changeSideManual(frames.rightArrow));
+exmp1.leftArrow.addEventListener('click', () => exmp1.changeSideManual(exmp1.leftArrow));    //обработчики нажатия на стрелку
+exmp1.rightArrow.addEventListener('click', () => exmp1.changeSideManual(exmp1.rightArrow));
 
-frames.changeSlideAuto();                       //запускаем автосвайп
+exmp1.changeSlideAuto();
