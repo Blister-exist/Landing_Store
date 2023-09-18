@@ -146,6 +146,18 @@
     height: 100vh;
 }
 
+.mobile__nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile__list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
 /*=============================================sections====================================*/
 
 /*==========================hero====================*/

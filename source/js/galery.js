@@ -38,6 +38,10 @@ const galery = {                                            //глобальны
         },
     ],
 
+    bullitInit: function(){
+        this.units.forEach((elem) => elem.bullit.addEventListener('click', () => galery.changeOnBullit(elem.bullit)));
+    },
+
 
     changeSlideAuto: function(){                        //метод объекта автоматически листающий слайды
         setInterval(() => {                             //функция повторяющая перелистывание через (см. строка 52)    
@@ -84,136 +88,35 @@ const galery = {                                            //глобальны
                 else{
                     obj.curPos += this.step;        //прибавсяем шаг (свайп влево)
                 }
+
             this.units[item].item.style.left = `${obj.curPos}%`;    
             }
+        }    
+        for (elem in this.units){
+            if (this.units[elem].curPos === 0){
+                this.units[elem].bullit.style.opacity = '1';
+            }
+            else{
+                this.units[elem].bullit.style.opacity = '0.5';
+            }
+        }
+    },
+    
+    changeOnBullit: function(bullit){
+        for (elem in this.units){
+            if (this.units[elem].bullit === bullit){
+            // this.units[elem].curPos = 0;
+            }
+            // console.log(this.units[elem].curPos);
+            // this.units[elem].item.style.left = `${this.units[elem].curPos}$`
         }
     }
 }
 
+
 galery.leftArrow.addEventListener('click', () => galery.changeSideManual(galery.leftArrow));    //обработчики нажатия на стрелку
 galery.rightArrow.addEventListener('click', () => galery.changeSideManual(galery.rightArrow));
 
+galery.bullitInit();
+
 galery.changeSlideAuto();                       //запускаем автосвайп
-
-
-// const SLIDES = {
-    
-//     STEP: 100,
-
-//     exmp: {
-//         count: 2,
-//         arrows: {},
-//         interval: 7000,
-//         units: {
-//             e1: {
-//                 item: document.getElementById('e-1'),
-//                 curPos: 0,                                      //начальное положение
-//                 left: undefined,
-//                 right: this.e2,
-//             },
-//             e2: {
-//                 item: document.getElementById('e-2'),
-//                 curPos: 100,
-//                 left: this.e1,
-//                 right: undefined
-//             },
-//         }
-//     },
-
-//     exmp2: {
-//         count: 2,
-//         arrows: {},
-//         interval: 6000,
-//         units: {
-//             e1: {
-//                 item: document.getElementById('e1-1'),
-//                 curPos: 0,
-//                 left: undefined,
-//                 right: this.e2,
-//             },
-//             e2: {
-//                 item: document.getElementById('e2-2'),
-//                 curPos: 0,
-//                 left: this.e1,
-//                 right: undefined
-//             },
-//         }
-//     },
-
-//     galery: {
-//         count: 4,
-//         arrows: {
-//             leftArrow: document.getElementById('galery-left'),            //объект левой стрелки
-//             rightArrow: document.getElementById('galery-right'),          //объект правой стрелки
-//         }, 
-//         interval: 2000,
-//         units: {
-//             b1: {
-//                 item: document.getElementById('b-1'),
-//                 curPos: 0,
-//                 left: undefined,
-//                 right: this.b2
-//             },
-//             b2: {
-//                 item: document.getElementById('b-2'),
-//                 curPos: 100,
-//                 left: console.log(this.b1),
-//                 right: this.b3,
-//             },
-//             b3: {
-//                 item: document.getElementById('b-3'),
-//                 curPos: 200,
-//                 left: this.b2,
-//                 right: this.b4,
-//             },
-//             b4: {
-//                 item: document.getElementById('b-4'),
-//                 curPos: 300,
-//                 left: this.b3,
-//                 right: undefined
-//             }
-//         }
-//     },
-
-//     getExtremePos: function (object){               //поиск конечной координаты(передать нужную галерею)\
-//         return (object.count-1)*this.STEP           //вычисляем крайние координаты слайдера
-//     },
-
-//     getFirstUnit: function(object){                         //получение первого слайда в слайдере
-//         for(key in object.units){                           //проходим циклом по юнитам
-//             if (object.units[key].left === undefined){      //если слева ничего нет 
-//                return object.units[key];                    //то он и есть первый
-//             }
-//         }
-//     },
-
-//     changePos: function(object, extremePos){                //рекурсивное вычиление новой позиции (передавать первый слайд)
-//         if (object.curPos !== extremePos[0]){
-//             object.curPos -= this.STEP;
-//         }
-//         if (object.right === undefined){                        //если справа кто-то есть
-//             console.log('это крайний')
-//         }
-//         else{
-//             return (this.changePos(object.right, extremePos))   //вызвать эту функцию для правого
-//         }
-//     },
-
-//     swipe: function(object){
-//         for (elem in object.units){
-//             object.units[elem].item.style.left = `${object.units[elem].item.curPos}%`;
-//         }
-//     },
-
-//     changeSlidesAuto: function (object){
-//         console.log('changeSlidesAuto')
-//         setInterval(() => {
-//             extremePos = [-this.getExtremePos(object), this.getExtremePos(object)];
-//             firstUnit = this.getFirstUnit(object);
-//             this.changePos(firstUnit, extremePos);
-//             this.swipe(object);
-//         }, object.interval)
-//     }
-// }
-
-// SLIDES.changeSlidesAuto(SLIDES.galery);
