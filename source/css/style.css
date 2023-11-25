@@ -335,10 +335,6 @@
     transition: .7s left ease-in-out;
 }
 
-.exmp__block--1{
-    left: 0
-}
-
 .exmp__frame{
     flex: 0 0 60%;
     height: 100%;
