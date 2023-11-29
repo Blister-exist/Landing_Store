@@ -184,24 +184,29 @@
 
 .hero__background{
     position: absolute;
-    left: 40px;
+    left: 10%;
     top: 10px;
     height: 788px;
-    aspect-ratio: 1/2;
+    /* aspect-ratio: 1/2; */
     z-index: 1;
     
 }
 
 .hero__frame{
     position: relative;
-    left: 30px;
+    left: 9%;
     top: 18px;
     height: 740px;
-    width: 345px;
+    width: 337px;
     border-radius: 30px;
     overflow: scroll;
     background-color: var(--text-white);
-    z-index: 2;
+    z-index: 0;
+    transition: 0.1s opacity ease;
+}
+
+.hero__frame::-webkit-scrollbar{
+    width: 0;
 }
 
 .hero__heading{
@@ -254,7 +259,7 @@
 }
 
 .card:hover{
-    transform: none;
+    transform: scale(1.2);
 }
 
 .card__heading{
@@ -340,6 +345,12 @@
     height: 100%;
     border-top-left-radius: 60px;
     border-bottom-left-radius: 60px;
+    overflow: hidden;
+}
+
+.exmp__content{
+    width: 100%;
+    height: 100%
 }
 
 .exmp__description{
@@ -364,37 +375,6 @@
 
 .exmp__heading--global{
     margin-top: 50px;
-}
-
-.exmp__bullits{
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.exmp__bullit{
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    padding: 0;
-    border: none;
-    outline: none;
-    border-radius: 50%;
-    background-color: #fff;
-    opacity: 0.5;
-    cursor: pointer;
-}
-
-.exmp__bullit:first-child{
-    opacity: 1;
-}
-
-.exmp__bullit:hover{
-    box-shadow: 0 0 30px 3px var(--zabota-orange);
 }
 
 /*===============================================slider========================================*/
@@ -468,37 +448,24 @@
     border-top-right-radius: 60px;
     border-bottom-right-radius: 60px;
 }
-
-.galery__bullits{
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/*КОСТЫЛЬ!!УБРАТЬ ПО ВОЗМОЖНОСТИ*/
+.galery__arrow--leftcost{
+    right: 0;
+    left: auto;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
 }
-
-.galery__bullit{
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    padding: 0;
-    border: none;
-    outline: none;
-    border-radius: 50%;
-    background-color: #fff;
-    opacity: 0.5;
-    cursor: pointer;
+.galery__arrow--rightcost{
+    right: auto;
+    left: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
 }
-
-.galery__bullit:first-child{
-    opacity: 1;
-}
-
-.galery__bullit:hover{
-    box-shadow: 0 0 30px 3px var(--zabota-orange);
-}
+/*конец костыля*/
 /*===============================================Modal========================================*/
 .moreinfo {
     display: flex;
@@ -602,7 +569,7 @@
     margin-right: auto;
     width: 100%;
     height: 70vh;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .tab__block{
@@ -612,14 +579,52 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    top: 100%;
+    top: 0;
     left: 0;
     border-radius: 60px;
-    transition: .7s top ease-in-out;
+    transition: .7s left ease-in-out;
+    z-index: -1;
+    border: 1px solid #fff;
+}
+
+.tab-animation-fade{
+    animation-name: tab-animation-fade;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes tab-animation-fade {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+}
+
+.tab-animation-unfade{
+    animation-name: tab-animation-unfade;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes tab-animation-unfade {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+    
 }
 
 .tab__block--1{
-    top: 0;
+    z-index: 1;
 }
 
 .tab__frame{

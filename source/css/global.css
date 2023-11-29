@@ -22,7 +22,7 @@ a{
 :root{
     /*colors*/
     --text-white: #bebebe;
-    --text-gray: #7a7788;
+    --text-gray: #9e9cad;
     --zabota-orange: #ff8562;
     --gray: #2e2b3f;
     --dark-gray: #221f2e;
@@ -87,6 +87,7 @@ a{
     line-height: 1;
     font-weight: 700;
     color: var(--text-white);
+    transform: scale(1);
 }
 
 .description{
@@ -94,6 +95,7 @@ a{
     line-height: var(--lh-text);
     font-weight: normal;
     color: var(--text-gray);
+    transform: scale(1);
 }
 
 /* .scroll__wrapper{
